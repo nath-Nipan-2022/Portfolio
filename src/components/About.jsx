@@ -2,26 +2,13 @@ import { motion as m } from "framer-motion";
 import ReactParallaxTilt from "react-parallax-tilt";
 
 import { services } from "../constants";
-import { fadeIn, staggerContainer, textVariant } from "../utils";
+import { fadeIn } from "../utils";
+import { SectionContainer, SectionHeader } from "./SectionContainer";
 
 export const About = () => {
   return (
-    <m.section
-      initial="hidden"
-      whileInView="show"
-      variants={staggerContainer("0.25")}
-      viewport={{ once: true, amount: 0.25 }}
-      className="pt-20 mx-auto paddingX max-w-7xl"
-      id="about"
-    >
-      <m.div variants={textVariant()}>
-        <div className="sectionSubText">
-          Introduction{" "}
-          <div className="w-[76px] h-[1px] bg-secondary/60 rounded"></div>
-        </div>
-        <h2 className="sectionHeadText">Overview.</h2>
-      </m.div>
-
+    <SectionContainer>
+      <SectionHeader subTitle={"Introduction"} title={"Overview."} />
       <m.p
         variants={fadeIn("bottom", "spring", 0.1, 1)}
         className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
@@ -44,7 +31,7 @@ export const About = () => {
           />
         ))}
       </div>
-    </m.section>
+    </SectionContainer>
   );
 };
 
@@ -55,14 +42,7 @@ const ServiceCard = ({ title, icon, index }) => {
         variants={fadeIn("right", "spring", 0.15 * index, 0.75)}
         className="green-pink-gradient rounded-[20px] shadow-card p-0.5 hover:hue-rotate-90 transition-colors duration-300"
       >
-        <div
-          options={{
-            max: 45,
-            scale: 1,
-            speed: 450,
-          }}
-          className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col"
-        >
+        <div className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col">
           <img
             src={icon}
             alt="web-development"
