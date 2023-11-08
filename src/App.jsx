@@ -1,5 +1,15 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { About, Contact, Hero, Navbar, StarsCanvas, Tech } from "./components";
+
+import {
+  About,
+  Contact,
+  Tech,
+  Hero,
+  Navbar,
+  StarsCanvas,
+  LoadingScreen,
+  Works,
+} from "./components";
 
 function App() {
   const router = createBrowserRouter([
@@ -7,11 +17,13 @@ function App() {
       path: "/",
       element: (
         <div className="relative z-0">
+          <LoadingScreen />
           <Navbar />
           <main>
             <Hero />
             <About />
             <Tech />
+            <Works />
             <div className="relative z-0">
               <Contact />
               <StarsCanvas />
