@@ -1,13 +1,14 @@
-import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { motion as m } from "framer-motion";
 
 import { navLinks } from "../constants";
-import { logo, menu, close } from "../assets";
+import { logo, arrow_right, menu, close } from "../assets";
 import { fadeIn, staggerContainer } from "../utils";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeLink, setActiveLink] = useState(false);
 
   return (
     <nav className="fixed top-0 z-20 flex items-center w-full py-5 transition paddingX">
@@ -25,23 +26,31 @@ export const Navbar = () => {
           {navLinks.map((link, i) => (
             <m.li
               key={link.id}
-              variants={fadeIn("left", "spring", i * 0.25, 0.75)}
+              variants={fadeIn("left", "spring", i * 0.25 + 4, 0.75)}
               className="text-xs font-semibold tracking-wider uppercase"
             >
-              <NavLink
-                to={link.title.toLowerCase()}
-                className={({ isActive }) =>
-                  isActive ? "text-blue-400" : "hover:text-blue-400"
-                }
+              <a
+                href={link.id}
+                className={`${
+                  activeLink === link.id
+                    ? "text-blue-400"
+                    : "hover:text-blue-400"
+                }`}
+                onClick={() => setActiveLink(link.id)}
               >
                 {link.title}
-              </NavLink>
+              </a>
             </m.li>
           ))}
 
-          <m.li variants={fadeIn("left", "spring", 0.5, 0.75)}>
-            <Link to={"contact"} className="btn btn-cta">
-              Contact
+          <m.li variants={fadeIn("left", "spring", 4.5, 0.75)}>
+            <Link to={"contact"} className="btn btn-cta group">
+              <span className="h-3">Contact</span>
+              <img
+                src={arrow_right}
+                alt="right arrow"
+                className="transition-all duration-300 group-hover:translate-x-[1px]"
+              />
             </Link>
           </m.li>
         </m.ul>
@@ -76,18 +85,22 @@ export const Navbar = () => {
                     variants={fadeIn("left", "spring", i * 0.1)}
                     className="text-xs font-semibold tracking-wider uppercase"
                   >
-                    <NavLink
-                      to={link.title.toLowerCase()}
-                      className="hover:text-blue-400"
+                    <a
+                      href={link.id}
+                      className={`${
+                        activeLink === link.id
+                          ? "text-blue-400"
+                          : "hover:text-blue-400"
+                      }`}
+                      onClick={() => setActiveLink(link.id)}
                     >
                       {link.title}
-                    </NavLink>
+                    </a>
                   </m.li>
                 ))}
-
                 <m.li variants={fadeIn("left", "spring", 0.3)}>
                   <Link to={"contact"} className="btn btn-cta">
-                    Contact
+                    <span className="h-3">Contact</span>
                   </Link>
                 </m.li>
               </m.ul>
