@@ -6,8 +6,23 @@ import { github, arrow_right } from "../assets";
 
 import { SectionContainer, SectionHeader } from "./SectionContainer";
 import { CardWrapper } from "./CardWrapper";
+import { useEffect } from "react";
 
 export const Works = () => {
+  useEffect(() => {
+    const handleCardHover = (e) => {
+      for (const card of document.querySelectorAll(".card")) {
+        card.style.setProperty("--x", e.clientX - card.offsetLeft - 50 + "px");
+        card.style.setProperty("--y", e.clientY - card.offsetTop - 50 + "px");
+      }
+    };
+    document.body.addEventListener("mousemove", handleCardHover);
+
+    return () => {
+      document.body.removeEventListener("mousemove", handleCardHover);
+    };
+  }, []);
+
   return (
     <SectionContainer id="works">
       <SectionHeader subTitle={"Works"} title={"My Projects."} />
