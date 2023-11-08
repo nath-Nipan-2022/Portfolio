@@ -3,6 +3,7 @@ import web from "./web.png";
 import github from "./github.png";
 import menu from "./menu.svg";
 import close from "./close.svg";
+import arrow_right from "./arrow-right.svg";
 
 import css from "./tech/css.png";
 import figma from "./tech/figma.png";
@@ -24,6 +25,7 @@ export {
   github,
   menu,
   close,
+  arrow_right,
   css,
   figma,
   git,
