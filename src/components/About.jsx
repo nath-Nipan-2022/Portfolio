@@ -7,7 +7,7 @@ import { SectionContainer, SectionHeader } from "./SectionContainer";
 
 export const About = () => {
   return (
-    <SectionContainer>
+    <SectionContainer id="about">
       <SectionHeader subTitle={"Introduction"} title={"Overview."} />
       <m.p
         variants={fadeIn("bottom", "spring", 0.1, 1)}

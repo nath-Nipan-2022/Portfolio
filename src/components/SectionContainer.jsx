@@ -1,7 +1,7 @@
 import { motion as m } from "framer-motion";
 import { staggerContainer, textVariant } from "../utils";
 
-export const SectionContainer = ({ children }) => {
+export const SectionContainer = ({ children, id }) => {
   return (
     <m.section
       initial="hidden"
@@ -9,6 +9,7 @@ export const SectionContainer = ({ children }) => {
       variants={staggerContainer()}
       viewport={{ once: true, amount: 0.25 }}
       className="pt-20 mx-auto paddingX max-w-7xl"
+      id={id}
     >
       {children}
     </m.section>
