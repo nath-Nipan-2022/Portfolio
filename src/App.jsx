@@ -9,6 +9,7 @@ import {
   StarsCanvas,
   LoadingScreen,
   Works,
+  Footer,
 } from "./components";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
               <Contact />
               <StarsCanvas />
             </div>
+            <Footer />
           </main>
         </div>
       ),
