@@ -26,6 +26,10 @@ body {
   @apply flex flex-col items-center gap-5 p-6 border bg-black/30 backdrop-blur border-neutral-700 rounded-xl;
 }
 
+.card-border {
+  background: radial-gradient(100px at var(--x) var(--y), #FFA737, transparent);
+}
+
 .paddingX {
   @apply sm:px-16 px-6
 }
@@ -43,7 +47,7 @@ body {
 }
 
 .headText {
-  @apply font-extrabold bg-gradient-to-b from-[#dfd9ff] to-[#4b25bc] lg:text-[72px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px]
+  @apply font-bold bg-gradient-to-b from-[#dfd9ff] to-[#4b25bc] lg:text-[72px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px]
 }
 
 .headText__name {
@@ -51,7 +55,7 @@ body {
 }
 
 .subText {
-  @apply bg-gradient-to-br from-[#dfd9ff] to-[#e6a78a] font-medium lg:text-[30px] sm:text-[18px] xs:text-[20px] text-sm leading-7 lg:leading-8
+  @apply bg-gradient-to-br from-[#dfd9ff] to-[#e6a78a] font-medium lg:text-[24px] sm:text-[18px] xs:text-[20px] text-sm leading-7 lg:leading-8
 }
 
 .sectionHeadText {
@@ -63,11 +67,15 @@ body {
 }
 
 .btn {
-  @apply px-4 py-2 text-xs font-semibold tracking-wider uppercase
+  @apply px-4 py-2 text-xs font-semibold
 }
 
 .btn-cta {
-  @apply inline-block h-8 pt-2.5 transition duration-300 text-primary bg-white rounded-lg hover:bg-[var(--accent)] active:scale-95
+  @apply flex gap-2 uppercase items-center transition duration-300 text-primary pl-3 pr-2 bg-[#dfd9ff] rounded-full hover:bg-[#c5b6ff] active:scale-95 hover:shadow-[0_0_40px_#c5b6ff]
+}
+
+.verticalText {
+  writing-mode: vertical-rl;
 }
 
 .black-gradient {
