@@ -5,6 +5,10 @@ import menu from "./menu.svg";
 import close from "./close.svg";
 import arrow_right from "./arrow-right.svg";
 
+import twitter from "./twitter.svg";
+import instagram from "./instagram.svg";
+import linkedin from "./linkedin.svg";
+
 import css from "./tech/css.png";
 import figma from "./tech/figma.png";
 import git from "./tech/git.png";
@@ -38,4 +42,7 @@ export {
   threejs,
   ecommerce,
   movieApp,
+  twitter,
+  instagram,
+  linkedin,
 };
