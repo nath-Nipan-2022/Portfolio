@@ -28,7 +28,6 @@ export const Contact = () => {
       templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
       publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
 
-    console.log(serviceId, templateId, publicKey);
     emailjs
       .send(
         serviceId,
@@ -61,11 +60,11 @@ export const Contact = () => {
 
   return (
     <SectionContainer id={"contact"}>
-      <div className="flex flex-col gap-20 overflow-hidden md:flex-row-reverse md:items-center">
+      <div className="flex flex-col gap-20 overflow-hidden lg:gap-10 lg:flex-row-reverse md:items-center">
         {/* 3d planet */}
         <m.div
           variants={slideIn("right", "tween", 0.2, 1)}
-          className="flex-grow md:h-[550px] h-[350px]"
+          className="md:h-[550px] h-[350px] lg:w-1/2"
         >
           <EarthCanvas />
         </m.div>
@@ -73,9 +72,9 @@ export const Contact = () => {
         {/* Contact form */}
         <m.article
           variants={slideIn("left", "tween", 0.2, 1)}
-          className="p-8 rounded-[20px] bg-tertiary flex-grow"
+          className="p-8 rounded-[20px] bg-tertiary md:w-[600px]"
         >
-          <SectionHeader subTitle={"Get in touch"} title={"Contact me."} k />
+          <SectionHeader subTitle={"Get in touch"} title={"Contact me."} />
 
           <form
             ref={formRef}
