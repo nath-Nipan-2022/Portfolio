@@ -11,10 +11,19 @@ export const Navbar = () => {
   const [activeLink, setActiveLink] = useState(false);
 
   return (
-    <nav className="fixed top-0 z-20 flex items-center w-full py-5 transition paddingX">
+    <nav className="fixed top-0 z-20 flex items-center w-full py-5 transition paddingX backdrop-blur">
       <div className="flex items-center justify-between flex-1 mx-auto max-w-7xl">
-        <Link to="/" className="flex items-center gap-2 font-bold uppercase">
-          <img src={logo} alt="logo" width={180} />
+        <Link
+          to="/"
+          className="flex items-center w-10 h-10 gap-2 overflow-hidden rounded-full opacity-90 hover:opacity-100"
+        >
+          <img
+            src={logo}
+            alt="logo"
+            width={40}
+            height={40}
+            className="object-contain w-full h-full"
+          />
         </Link>
         {/* desktop menu */}
         <m.ul
@@ -44,14 +53,14 @@ export const Navbar = () => {
           ))}
 
           <m.li variants={fadeIn("left", "spring", 4.5, 0.75)}>
-            <Link to={"contact"} className="btn btn-cta group">
+            <a href="#contact" className="btn btn-cta group">
               <span className="h-3">Contact</span>
               <img
                 src={arrow_right}
                 alt="right arrow"
                 className="transition-all duration-300 group-hover:translate-x-[1px]"
               />
-            </Link>
+            </a>
           </m.li>
         </m.ul>
 
@@ -99,9 +108,9 @@ export const Navbar = () => {
                   </m.li>
                 ))}
                 <m.li variants={fadeIn("left", "spring", 0.3)}>
-                  <Link to={"contact"} className="btn btn-cta">
+                  <a href="#contact" className="btn btn-cta">
                     <span className="h-3">Contact</span>
-                  </Link>
+                  </a>
                 </m.li>
               </m.ul>
             </div>
