@@ -1,4 +1,4 @@
-import logo from "./logo.svg";
+import logo from "./logo.png";
 import web from "./web.png";
 import github from "./github.png";
 import menu from "./menu.svg";
