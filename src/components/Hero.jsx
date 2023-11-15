@@ -5,7 +5,7 @@ import { fadeIn, staggerContainer } from "../utils";
 
 export const Hero = () => {
   return (
-    <section className="relative z-0 h-screen bg-center bg-no-repeat bg-cover bg-hero-pattern">
+    <section className="relative z-0 h-auto bg-center bg-no-repeat bg-cover sm:h-screen bg-hero-pattern">
       <div className="paddingX absolute inset-0 pt-[120px] max-w-7xl mx-auto flex gap-5">
         <div className="flex-col items-center justify-between hidden h-full pb-4 sm:flex">
           <div className="h-[100px] w-[1px] bg-secondary/50 rounded"></div>
