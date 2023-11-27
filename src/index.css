@@ -8,7 +8,7 @@
 
 :root {
   --background: #010001;
-  --foreground: #EDEAE9;
+  --foreground: #eadaea;
   --accent: #FFA737;
 }
 
@@ -23,7 +23,29 @@ body {
 @tailwind utilities;
 
 .menu_items_container {
-  @apply flex flex-col items-center gap-5 p-6 border bg-black/30 backdrop-blur border-neutral-700 rounded-xl;
+  @apply flex flex-col items-center gap-5 p-6 border border-neutral-700 bg-primary w-36 rounded-xl;
+}
+
+.hamburger-menu {
+  @apply flex flex-col justify-between h-11 p-[15px] cursor-pointer -mr-3;
+}
+
+.hamburger-menu span {
+  @apply h-[2px] rounded block bg-neutral-300 transition-all duration-500
+}
+
+.hamburger-menu.active span:nth-child(1) {
+  transform: translate(0, 6px) rotate(45deg);
+  width: 100%;
+}
+
+.hamburger-menu.active span:nth-child(3) {
+  transform: translate(0, -6px) rotate(-45deg);
+  width: 100%;
+}
+
+.hamburger-menu.active span:nth-child(2) {
+  transform: scaleX(0);
 }
 
 .card-border {
@@ -47,15 +69,12 @@ body {
 }
 
 .headText {
-  @apply font-bold bg-gradient-to-b from-[#dfd9ff] to-[#4b25bc] lg:text-[72px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px]
-}
-
-.headText__name {
-  @apply bg-gradient-to-b from-[var(--accent)] to-[#260212]
+  @apply font-bold lg:text-[72px] sm:text-[60px] xs:text-[50px] text-[40px] lg:leading-[98px] text-[#ddd6fb];
+  text-shadow: 4px 4px 0px #764ad4eb;
 }
 
 .subText {
-  @apply bg-gradient-to-br from-[#dfd9ff] to-[#e6a78a] font-medium lg:text-[24px] sm:text-[18px] xs:text-[20px] text-sm leading-7 lg:leading-8
+  @apply font-medium md:text-4xl pr-5 md:pr-0 xs:text-[24px] leading-7 md:leading-none text-[var(--foreground)]
 }
 
 .sectionHeadText {
@@ -71,7 +90,7 @@ body {
 }
 
 .btn-cta {
-  @apply flex gap-2 uppercase items-center transition duration-300 text-primary pl-3 pr-2 bg-[#dfd9ff] rounded-full hover:bg-[#c5b6ff] active:scale-95 hover:shadow-[0_0_40px_#c5b6ff]
+  @apply flex gap-2 items-center transition duration-300 text-primary font-bold py-2.5 pr-3 bg-[var(--accent)] rounded-md hover:bg-black hover:text-white-100 active:scale-95 border border-[var(--accent)]
 }
 
 .verticalText {

@@ -5,67 +5,40 @@ import { fadeIn, staggerContainer } from "../utils";
 
 export const Hero = () => {
   return (
-    <section className="relative z-0 h-auto bg-center bg-no-repeat bg-cover sm:h-screen bg-hero-pattern">
-      <div className="paddingX absolute inset-0 pt-[120px] max-w-7xl mx-auto flex gap-5">
-        <div className="flex-col items-center justify-between hidden h-full pb-4 sm:flex">
-          <div className="h-[100px] w-[1px] bg-secondary/50 rounded"></div>
-
-          <div>
-            <span className="inline-block text-xs font-bold tracking-widest uppercase rotate-180 verticalText text-secondary">
-              Nipan Debnath
-            </span>
-          </div>
-
-          <div className="h-[100px] w-[1px] bg-secondary/50 rounded"></div>
-        </div>
-
+    <section className="relative z-0 h-[599px] bg-center bg-no-repeat bg-cover sm:h-screen bg-hero-pattern">
+      <div className="paddingX absolute inset-0 pt-[110px] max-w-7xl mx-auto flex gap-5">
         <div className="relative flex w-full h-full sm:justify-center sm:text-center">
           <article>
-            <h1 className="gradient-text headText">
-              Hi, I&apos;m{" "}
-              <span className="gradient-text headText__name">Nipan</span>
-            </h1>
-            <p className="mt-1 subText gradient-text">
+            <h1 className="headText">Hi, I&apos;m Nipan</h1>
+            <p className="mt-1 subText">
               I bring innovation to life through{" "}
               <br className="hidden sm:block" /> web development and design.
             </p>
           </article>
+          <m.div
+            initial="hidden"
+            animate="show"
+            variants={staggerContainer()}
+            className="absolute top-0 right-0 z-10 flex flex-col items-center h-full pb-4 sm:justify-center"
+          >
+            <m.ul
+              variants={fadeIn("down", "spring", 4.75)}
+              className="flex flex-col items-center justify-between gap-5"
+            >
+              {socialLinks.map((item) => (
+                <li key={item.id}>
+                  <a href={item.link} rel="noreferrer" target="_blank">
+                    <img
+                      src={item.icon}
+                      alt={item.id}
+                      className="w-6 h-6 transition opacity-70 hover:brightness-200 hover:opacity-100"
+                    />
+                  </a>
+                </li>
+              ))}
+            </m.ul>
+          </m.div>
         </div>
-
-        {/* social links */}
-        <m.div
-          initial="hidden"
-          animate="show"
-          variants={staggerContainer()}
-          className="relative z-10 flex flex-col items-center justify-between h-full pb-4"
-        >
-          <m.div
-            variants={fadeIn("up", "spring", 4.75)}
-            className="h-[100px] w-[1px] bg-secondary/50 rounded"
-          ></m.div>
-
-          <ul className="flex flex-col gap-6">
-            {socialLinks.map((item, i) => (
-              <m.li
-                key={item.id}
-                variants={fadeIn("up", "spring", i * 0.25 + 5)}
-              >
-                <a href={item.link} rel="noreferrer" target="_blank">
-                  <img
-                    src={item.icon}
-                    alt={item.id}
-                    className="transition duration-300 w-7 h-7 hover:scale-125 hover:brightness-200"
-                  />
-                </a>
-              </m.li>
-            ))}
-          </ul>
-
-          <m.div
-            variants={fadeIn("up", "spring", 5.75)}
-            className="h-[100px] w-[1px] bg-secondary/50 rounded rotate-180"
-          ></m.div>
-        </m.div>
       </div>
       <ComputersCanvas />
 
@@ -88,7 +61,7 @@ export const Hero = () => {
         </a>
       </div>
 
-      <div className="absolute inset-0 -z-10 bg-black/50"></div>
+      <div className="absolute inset-0 -z-10 bg-black/10 backdrop-blur"></div>
     </section>
   );
 };
