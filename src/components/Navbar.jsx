@@ -3,12 +3,31 @@ import { Link } from "react-router-dom";
 import { motion as m } from "framer-motion";
 
 import { navLinks } from "../constants";
-import { logo, arrow_right, menu, close } from "../assets";
+import { arrow_right, logo } from "../assets";
 import { fadeIn, staggerContainer } from "../utils";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeLink, setActiveLink] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveLink(() => `#${entry.target.id}`);
+          }
+        });
+      },
+      { threshold: 0.2 }
+    );
+
+    document
+      .querySelectorAll("section")
+      .forEach((section) => observer.observe(section));
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <nav className="fixed top-0 z-20 flex items-center w-full py-5 transition paddingX backdrop-blur">
@@ -36,7 +55,7 @@ export const Navbar = () => {
             <m.li
               key={link.id}
               variants={fadeIn("left", "spring", i * 0.25 + 4, 0.75)}
-              className="text-xs font-semibold tracking-wider uppercase"
+              className="font-semibold tracking-wider"
             >
               <a
                 href={link.id}
@@ -45,7 +64,6 @@ export const Navbar = () => {
                     ? "text-blue-400"
                     : "hover:text-blue-400"
                 }`}
-                onClick={() => setActiveLink(link.id)}
               >
                 {link.title}
               </a>
@@ -54,11 +72,13 @@ export const Navbar = () => {
 
           <m.li variants={fadeIn("left", "spring", 4.5, 0.75)}>
             <a href="#contact" className="btn btn-cta group">
-              <span className="h-3">Contact</span>
+              <span className="h-[0.815rem] transition-transform duration-300 group-hover:translate-x-2.5">
+                Contact
+              </span>
               <img
                 src={arrow_right}
                 alt="right arrow"
-                className="transition-all duration-300 group-hover:translate-x-[1px]"
+                className="transition duration-300 group-hover:translate-x-2 group-hover:opacity-0"
               />
             </a>
           </m.li>
@@ -66,12 +86,16 @@ export const Navbar = () => {
 
         {/* mobile menu */}
         <div className="flex items-center justify-end sm:hidden">
-          <img
-            src={!isOpen ? menu : close}
-            alt="menu icon"
-            className="w-[24px] h-[24px] object-contain cursor-pointer"
+          {/* hamburger */}
+          <div
             onClick={() => setIsOpen((prev) => !prev)}
-          />
+            className={`hamburger-menu ${isOpen ? "active" : ""}`}
+          >
+            <span className="self-end w-1/2"></span>
+            <span className="w-5"></span>
+            <span className="w-1/2"></span>
+          </div>
+
           {isOpen && (
             <div
               className={`absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 ${
@@ -92,7 +116,7 @@ export const Navbar = () => {
                   <m.li
                     key={link.id}
                     variants={fadeIn("left", "spring", i * 0.1)}
-                    className="text-xs font-semibold tracking-wider uppercase"
+                    className="text-sm font-semibold tracking-wider"
                   >
                     <a
                       href={link.id}
@@ -101,7 +125,6 @@ export const Navbar = () => {
                           ? "text-blue-400"
                           : "hover:text-blue-400"
                       }`}
-                      onClick={() => setActiveLink(link.id)}
                     >
                       {link.title}
                     </a>
