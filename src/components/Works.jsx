@@ -12,8 +12,10 @@ export const Works = () => {
   useEffect(() => {
     const handleCardHover = (e) => {
       for (const card of document.querySelectorAll(".card")) {
-        card.style.setProperty("--x", e.clientX - card.offsetLeft - 50 + "px");
-        card.style.setProperty("--y", e.clientY - card.offsetTop - 50 + "px");
+        const { left, top } = card.getBoundingClientRect();
+
+        card.style.setProperty("--x", e.clientX - left - 50 + "px");
+        card.style.setProperty("--y", e.clientY - top - 50 + "px");
       }
     };
     document.body.addEventListener("mousemove", handleCardHover);
@@ -36,7 +38,6 @@ export const Works = () => {
         complex problems, work with different technologies, and manage projects
         effectively.
       </m.p>
-      t
       <div className="relative z-0 flex flex-wrap py-20 gap-7">
         {projects.map((project, i) => (
           <ProjectCard key={i} project={project} index={i} />
