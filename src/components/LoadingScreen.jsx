@@ -5,10 +5,12 @@ export const LoadingScreen = () => {
   const [counter, setCounter] = useState(0);
 
   useEffect(() => {
+    document.body.style.overflow = "hidden";
     let timer;
     const startLoading = () => {
       if (counter >= 100) {
         setCounter(100);
+        document.body.style.overflow = "";
         return;
       }
 
