@@ -61,11 +61,7 @@ export const Hero = () => {
         </a>
       </div>
 
-<<<<<<< HEAD
       <div className="absolute inset-0 -z-10 bg-black/10"></div>
-=======
-      <div className="absolute inset-0 -z-10 bg-black/10 backdrop-blur"></div>
->>>>>>> 814f49c21b780e5815483de619a40320455d7118
     </section>
   );
 };

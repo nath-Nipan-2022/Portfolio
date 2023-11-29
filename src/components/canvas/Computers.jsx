@@ -22,11 +22,7 @@ const Computer = ({ isMobile }) => {
       <primitive
         object={computer.scene}
         scale={isMobile ? 0.5 : 0.6}
-<<<<<<< HEAD
         position={isMobile ? [0, -2.5, -0.85] : [0, -3.75, -1.35]}
-=======
-        position={isMobile ? [0, -2.5, -0.85] : [0, -3.75, -1.5]}
->>>>>>> 814f49c21b780e5815483de619a40320455d7118
         rotation={[-0.01, -0.2, -0.1]}
       />
     </mesh>

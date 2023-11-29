@@ -3,35 +3,8 @@ import { motion } from "framer-motion";
 // import { useEffect, useState } from "react";
 
 export const LoadingScreen = () => {
-<<<<<<< HEAD
   // const [counter, setCounter] = useState(0);
   const { progress } = useProgress();
-=======
-  const [counter, setCounter] = useState(0);
-
-  useEffect(() => {
-    document.body.style.overflow = "hidden";
-    let timer;
-    const startLoading = () => {
-      if (counter >= 100) {
-        setCounter(100);
-        document.body.style.overflow = "";
-        return;
-      }
-
-      let delay = Math.floor(Math.random() * 200) + 50;
-      timer = setTimeout(() => {
-        setCounter((prev) => prev + Math.floor(Math.random() * 10) + 1);
-        startLoading();
-      }, delay);
-    };
-
-    startLoading();
-    return () => {
-      clearTimeout(timer);
-    };
-  });
->>>>>>> 814f49c21b780e5815483de619a40320455d7118
 
   return (
     <motion.div
