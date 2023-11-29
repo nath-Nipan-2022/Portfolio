@@ -12,8 +12,10 @@ export const Works = () => {
   useEffect(() => {
     const handleCardHover = (e) => {
       for (const card of document.querySelectorAll(".card")) {
-        card.style.setProperty("--x", e.clientX - card.offsetLeft - 50 + "px");
-        card.style.setProperty("--y", e.clientY - card.offsetTop - 50 + "px");
+        const { left, top } = card.getBoundingClientRect();
+
+        card.style.setProperty("--x", e.clientX - left - 50 + "px");
+        card.style.setProperty("--y", e.clientY - top - 50 + "px");
       }
     };
     document.body.addEventListener("mousemove", handleCardHover);
@@ -36,7 +38,6 @@ export const Works = () => {
         complex problems, work with different technologies, and manage projects
         effectively.
       </m.p>
-      t
       <div className="relative z-0 flex flex-wrap py-20 gap-7">
         {projects.map((project, i) => (
           <ProjectCard key={i} project={project} index={i} />
@@ -91,7 +92,13 @@ const ProjectCard = ({ project, index }) => {
         </div>
         <div className="mt-5">
           <h3 className="text-2xl font-bold text-white">{name}</h3>
-          <p className="mt-2 text-sm text-secondary">{description}</p>
+          <ul className="flex flex-wrap pl-2 mt-2 text-sm list-disc text-secondary">
+            {description.split(". ").map((item) => (
+              <li key={item} className="mx-3">
+                {item}
+              </li>
+            ))}
+          </ul>
         </div>
         <div className="flex flex-wrap gap-2 mt-4">
           {tags.map((tag) => (
