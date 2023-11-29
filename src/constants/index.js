@@ -15,6 +15,7 @@ import {
   threejs,
   ecommerce,
   movieApp,
+  car_showcase_app,
 } from "../assets";
 
 export const navLinks = [
@@ -107,7 +108,8 @@ export const technologies = [
 export const projects = [
   {
     name: "E commerce app",
-    description: "Lorem ipsum dolor sit amet, consect id elit, sed diam nonumy",
+    description:
+      "Popular & Trending products. Category page. Sort by order. Filter by colors, price ranges. Shareable routes. Search products. Add to Cart. Checkout Page, etc...",
     tags: [
       {
         name: "react",
@@ -131,11 +133,12 @@ export const projects = [
       },
     ],
     image: ecommerce,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/nath-Nipan-2022/E-commerce-app-rtk",
   },
   {
     name: "Movie App",
-    description: "Lorem ipsum dolor sit amet, consect id elit, sed diam nonumy",
+    description:
+      "Trending Movies & Tv shows. Details page. Add to watch list. Watching trailer. Similar movies or tv shows and  searching. Filtering. Carousels. Infinite scrolling. Lazy loading images etc...",
     tags: [
       {
         name: "react",
@@ -155,6 +158,31 @@ export const projects = [
       },
     ],
     image: movieApp,
-    source_code_link: "https://github.com/",
+    source_code_link: "https://github.com/nath-Nipan-2022/react-movie-app",
+  },
+  {
+    name: "Car Showcasing App",
+    description:
+      "Home page with available popular cars. Search by brand and models. Filter by fuel and year. Show more cars button. Skeleton loading. Modal for car details etc...",
+    tags: [
+      {
+        name: "react",
+        color: "blue-text-gradient",
+      },
+      {
+        name: "typescript",
+        color: "orange-text-gradient",
+      },
+      {
+        name: "headlessui",
+        color: "green-text-gradient",
+      },
+      {
+        name: "rapid api",
+        color: "pink-text-gradient",
+      },
+    ],
+    image: car_showcase_app,
+    source_code_link: "https://github.com/nath-Nipan-2022/Car-showcase-project",
   },
 ];
