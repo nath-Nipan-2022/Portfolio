@@ -20,8 +20,9 @@ import tailwind from "./tech/tailwind.png";
 import typescript from "./tech/typescript.png";
 import threejs from "./tech/threejs.svg";
 
-import ecommerce from "./e-commerce.png";
-import movieApp from "./movieApp.png";
+import ecommerce from "./e-commerce.webp";
+import movieApp from "./movieApp.webp";
+import car_showcase_app from "./car-showcase-app.webp";
 
 export {
   logo,
@@ -42,6 +43,7 @@ export {
   threejs,
   ecommerce,
   movieApp,
+  car_showcase_app,
   twitter,
   instagram,
   linkedin,
