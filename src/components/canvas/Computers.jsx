@@ -5,7 +5,7 @@ import { OrbitControls, Preload, SpotLight, useGLTF } from "@react-three/drei";
 import CanvasLoader from "../Loader";
 
 const Computer = ({ isMobile }) => {
-  const computer = useGLTF("./desktop_pc/scene.gltf");
+  const computer = useGLTF("./desktop_pc/scene.glb");
 
   return (
     <mesh>
@@ -13,7 +13,7 @@ const Computer = ({ isMobile }) => {
       <SpotLight
         angle={1}
         penumbra={1}
-        intensity={150}
+        intensity={50}
         castShadow
         shadow-mapSize={1024}
         position={[0, 0.1, 0]}
@@ -21,8 +21,8 @@ const Computer = ({ isMobile }) => {
       <pointLight intensity={2} position={[0, -1, 0]} />
       <primitive
         object={computer.scene}
-        scale={isMobile ? 0.5 : 0.65}
-        position={isMobile ? [0, -2.5, -1] : [0, -3.75, -1.5]}
+        scale={isMobile ? 0.5 : 0.6}
+        position={isMobile ? [0, -2.5, -0.85] : [0, -3.75, -1.35]}
         rotation={[-0.01, -0.2, -0.1]}
       />
     </mesh>
@@ -33,24 +33,17 @@ const ComputersCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
-    // Add a listener for changes to the screen size
-    const mediaQuery = window.matchMedia("(max-width: 500px)");
-
-    // Set the initial value of the `isMobile` state variable
-    setIsMobile(mediaQuery.matches);
-
-    // Define a callback function to handle changes to the media query
-    const handleMediaQueryChange = (event) => {
-      setIsMobile(event.matches);
+    const handleResize = () => {
+      if (window.innerWidth > 500) {
+        setIsMobile(false);
+      } else {
+        setIsMobile(true);
+      }
     };
+    handleResize();
+    window.addEventListener("resize", handleResize);
 
-    // Add the callback function as a listener for changes to the media query
-    mediaQuery.addEventListener("change", handleMediaQueryChange);
-
-    // Remove the listener when the component is unmounted
-    return () => {
-      mediaQuery.removeEventListener("change", handleMediaQueryChange);
-    };
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   return (
