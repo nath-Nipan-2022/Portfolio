@@ -22,7 +22,7 @@ export const Contact = () => {
   };
 
   const sendEmail = (evt) => {
-    // setIsSending(true);
+    setIsSending(true);
     evt.preventDefault();
     const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID,
       templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
@@ -114,12 +114,13 @@ export const Contact = () => {
             </label>
 
             <button
-              className="capitalize transition border rounded-lg outline-none btn w-fit border-secondary/40 hover:bg-[#c5b6ff] focus:bg-[#c5b6ff] hover:text-primary focus:text-primary h-9 disabled:opacity-70 disabled:bg-[#c5b6ff]"
+              className="flex gap-2 items-center transition border rounded-lg outline-none btn w-fit border-secondary/40 hover:bg-[#c5b6ff] focus:bg-[#c5b6ff] disabled:bg-[#c5b6ff] hover:text-primary focus:text-primary disabled:text-primary"
               disabled={isSending}
             >
-              <span className="pt-1">
-                {isSending ? "Sending..." : "Send Message"}
-              </span>
+              {isSending && (
+                <span className="inline-block w-4 h-4 border rounded-full border-black/60 border-t-white animate-spin"></span>
+              )}
+              <span className="pt-1">Send Message</span>
             </button>
           </form>
         </m.article>
