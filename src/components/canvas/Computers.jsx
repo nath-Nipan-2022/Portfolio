@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unknown-property */
 import { Suspense, useEffect, useState } from "react";
 import { Canvas } from "@react-three/fiber";
 import { OrbitControls, Preload, SpotLight, useGLTF } from "@react-three/drei";
@@ -8,24 +9,12 @@ const Computer = ({ isMobile }) => {
   const computer = useGLTF("./desktop_pc/scene.glb");
 
   return (
-    <mesh>
-      <hemisphereLight intensity={4} groundColor="black" />
-      <SpotLight
-        angle={1}
-        penumbra={1}
-        intensity={50}
-        castShadow
-        shadow-mapSize={1024}
-        position={[0, 0.1, 0]}
-      />
-      <pointLight intensity={2} position={[0, -1, 0]} />
-      <primitive
-        object={computer.scene}
-        scale={isMobile ? 0.5 : 0.6}
-        position={isMobile ? [0, -2.5, -0.85] : [0, -3.75, -1.35]}
-        rotation={[-0.01, -0.2, -0.1]}
-      />
-    </mesh>
+    <primitive
+      object={computer.scene}
+      scale={isMobile ? 0.5 : 0.6}
+      position={isMobile ? [0, -2.5, -0.85] : [0, -3.75, -1.1]}
+      rotation={[-0.01, -0.2, -0.1]}
+    />
   );
 };
 
@@ -54,6 +43,14 @@ const ComputersCanvas = () => {
       gl={{ preserveDrawingBuffer: true }}
     >
       <Suspense fallback={<CanvasLoader />}>
+        <directionalLight position={[-12.7, 9.6, -2.6]} intensity={2} />
+        <ambientLight />
+        <hemisphereLight
+          intensity={2.16}
+          groundColor="black"
+          position={[0, 10, 0]}
+        />
+        <pointLight intensity={2} position={[-0.1, -1.25, 0]} />
         <OrbitControls
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}
