@@ -74,7 +74,7 @@ body {
 }
 
 .subText {
-  @apply font-thin md:text-[2rem] max-w-md md:pr-0 xs:text-[24px] leading-7 md:leading-none text-[var(--foreground)]
+  @apply font-thin md:text-[2rem] w-11/12 md:w-full md:pr-0 xs:text-[24px] leading-7 md:leading-none text-[var(--foreground)]
 }
 
 .sectionHeadText {
