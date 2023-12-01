@@ -1,16 +1,19 @@
 import { motion as m } from "framer-motion";
-import ReactParallaxTilt from "react-parallax-tilt";
 
 import { services } from "../constants";
 import { fadeIn } from "../utils";
 import { SectionContainer, SectionHeader } from "./SectionContainer";
+import { CardWrapper } from "./CardWrapper";
+import { useCardsHoverEffect } from "../hooks/useCardsHoverEffect";
 
 export const About = () => {
+  useCardsHoverEffect("#about");
+
   return (
     <SectionContainer id="about">
       <SectionHeader subTitle={"Introduction"} title={"Overview."} />
       <m.p
-        variants={fadeIn("bottom", "spring", 0.1, 1)}
+        variants={fadeIn("bottom", "tween", 0.1, 1)}
         className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
       >
         I&apos;m a skilled frontend developer with experience in TypeScript and
@@ -21,7 +24,7 @@ export const About = () => {
         life!
       </m.p>
 
-      <div className="flex flex-wrap justify-center gap-10 mt-20 sm:justify-start">
+      <div className="flex flex-wrap justify-center gap-10 pb-10 mt-20 sm:justify-start">
         {services.map((service, index) => (
           <ServiceCard
             key={index}
@@ -37,23 +40,21 @@ export const About = () => {
 
 const ServiceCard = ({ title, icon, index }) => {
   return (
-    <ReactParallaxTilt className="xs:w-[250px] w-full">
-      <m.div
-        variants={fadeIn("right", "spring", 0.15 * index, 0.75)}
-        className="green-pink-gradient rounded-[20px] shadow-card p-0.5 hover:hue-rotate-90 transition-colors duration-300"
-      >
-        <div className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col">
-          <img
-            src={icon}
-            alt="web-development"
-            className="object-contain w-16 h-16"
-          />
+    <CardWrapper
+      animationVariant={fadeIn("right", "spring", 0.15 * index, 0.75)}
+      className="shadow-card w-[260px]"
+    >
+      <div className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col">
+        <img
+          src={icon}
+          alt="web-development"
+          className="object-contain w-16 h-16"
+        />
 
-          <h3 className="text-white text-[20px] font-bold text-center">
-            {title}
-          </h3>
-        </div>
-      </m.div>
-    </ReactParallaxTilt>
+        <h3 className="text-white text-[20px] font-bold text-center">
+          {title}
+        </h3>
+      </div>
+    </CardWrapper>
   );
 };

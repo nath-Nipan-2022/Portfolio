@@ -6,24 +6,10 @@ import { github, arrow_right } from "../assets";
 
 import { SectionContainer, SectionHeader } from "./SectionContainer";
 import { CardWrapper } from "./CardWrapper";
-import { useEffect } from "react";
+import { useCardsHoverEffect } from "../hooks/useCardsHoverEffect";
 
 export const Works = () => {
-  useEffect(() => {
-    const handleCardHover = (e) => {
-      for (const card of document.querySelectorAll(".card")) {
-        const { left, top } = card.getBoundingClientRect();
-
-        card.style.setProperty("--x", e.clientX - left - 50 + "px");
-        card.style.setProperty("--y", e.clientY - top - 50 + "px");
-      }
-    };
-    document.body.addEventListener("mousemove", handleCardHover);
-
-    return () => {
-      document.body.removeEventListener("mousemove", handleCardHover);
-    };
-  }, []);
+  useCardsHoverEffect("#works");
 
   return (
     <SectionContainer id="works">
@@ -54,13 +40,17 @@ const ProjectCard = ({ project, index }) => {
   const { name, description, tags, image, source_code_link } = project;
 
   return (
-    <CardWrapper index={index}>
+    <CardWrapper
+      className="xs:w-[360px] w-full"
+      animationVariant={fadeIn("up", "spring", index * 0.2, 1)}
+    >
       <div className="relative bg-black/80 backdrop-blur-xl rounded-[20px] p-4">
         <div className="w-full h-[230px] relative">
           <img
             src={image}
             alt="project image"
             className="object-cover object-top w-full h-full rounded-2xl"
+            loading="lazy"
           />
           <div className="absolute inset-0 flex justify-end gap-2 p-4 transition">
             {/* github link */}

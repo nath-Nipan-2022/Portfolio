@@ -1,14 +1,13 @@
 import { motion } from "framer-motion";
 import ReactParallaxTilt from "react-parallax-tilt";
-import { fadeIn } from "../utils";
 
-export const CardWrapper = ({ children, index, className }) => {
+export const CardWrapper = ({ children, className, animationVariant }) => {
+  // NOTE: 'card' className is for ->
+  // -> selecting all cards while mouse moves
+
   return (
-    <motion.div
-      className="card"
-      variants={fadeIn("up", "spring", index * 0.15, 0.75)}
-    >
-      <ReactParallaxTilt className="xs:w-[360px] w-full">
+    <motion.div className="card" variants={animationVariant}>
+      <ReactParallaxTilt>
         <div className={`relative p-[2px] z-0 rounded-[20px] ${className}`}>
           {children}
 
