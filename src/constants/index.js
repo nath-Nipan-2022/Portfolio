@@ -36,14 +36,14 @@ export const socialLinks = [
     link: "https://twitter.com/nipandebnth?s=09",
   },
   {
-    id: "instagram",
-    icon: instagram,
-    link: "https://www.instagram.com/nath_nipan_789",
-  },
-  {
     id: "linkedin",
     icon: linkedin,
     link: "https://www.linkedin.com/in/nipan-debnath-742025248",
+  },
+  {
+    id: "instagram",
+    icon: instagram,
+    link: "https://www.instagram.com/nath_nipan_789",
   },
 ];
 
@@ -107,7 +107,7 @@ export const technologies = [
 
 export const projects = [
   {
-    name: "E commerce app",
+    name: "E-commerce app",
     description:
       "Popular & Trending products. Category page. Sort by order. Filter by colors, price ranges. Shareable routes. Search products. Add to Cart. Checkout Page, etc...",
     tags: [
@@ -134,6 +134,7 @@ export const projects = [
     ],
     image: ecommerce,
     source_code_link: "https://github.com/nath-Nipan-2022/E-commerce-app-rtk",
+    live_url: "https://shopcart-ecommerce.vercel.app",
   },
   {
     name: "Movie App",
@@ -159,11 +160,12 @@ export const projects = [
     ],
     image: movieApp,
     source_code_link: "https://github.com/nath-Nipan-2022/react-movie-app",
+    live_url: "https://react-movie-app-alpha-ivory.vercel.app/",
   },
   {
     name: "Car Showcasing App",
     description:
-      "Home page with available popular cars. Search by brand and models. Filter by fuel and year. Show more cars button. Skeleton loading. Modal for car details etc...",
+      "Home page with available popular cars. Search by brand and models. Filter by fuel and year. Show more cars button. Light / Dark mode. Modal for car details etc...",
     tags: [
       {
         name: "react",
@@ -184,5 +186,6 @@ export const projects = [
     ],
     image: car_showcase_app,
     source_code_link: "https://github.com/nath-Nipan-2022/Car-showcase-project",
+    live_url: "https://car-showcase-eta-sandy.vercel.app/",
   },
 ];

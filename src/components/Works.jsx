@@ -37,14 +37,15 @@ export const Works = () => {
 };
 
 const ProjectCard = ({ project, index }) => {
-  const { name, description, tags, image, source_code_link } = project;
+  const { name, description, tags, image, source_code_link, live_url } =
+    project;
 
   return (
     <CardWrapper
       className="xs:w-[360px] w-full"
-      animationVariant={fadeIn("up", "spring", index * 0.2, 1)}
+      animationVariant={fadeIn("right", "spring", index * 0.3, 1)}
     >
-      <div className="relative bg-black/80 backdrop-blur-xl rounded-[20px] p-4">
+      <div className="relative bg-black-200/80 backdrop-blur-xl rounded-[20px] p-4">
         <div className="w-full h-[230px] relative">
           <img
             src={image}
@@ -64,12 +65,12 @@ const ProjectCard = ({ project, index }) => {
             </a>
             {/* live view */}
             <a
-              href={name}
+              href={live_url}
               rel="noreferrer"
               target="_blank"
               className="flex items-center justify-center w-10 h-10 p-1 transition rounded-full cursor-pointer black-gradient hover:invert"
               onClick={() => {
-                window.open(source_code_link, "_blank");
+                window.open(live_url, "_blank");
               }}
             >
               <img
