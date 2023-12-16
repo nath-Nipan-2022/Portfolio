@@ -1,9 +1,7 @@
 import { useProgress } from "@react-three/drei";
 import { motion } from "framer-motion";
-// import { useEffect, useState } from "react";
 
 export const LoadingScreen = () => {
-  // const [counter, setCounter] = useState(0);
   const { progress } = useProgress();
 
   return (
@@ -19,11 +17,11 @@ export const LoadingScreen = () => {
         <div className="font-bold text-[#dfd9ff] text-[80px] leading-tight">
           {progress.toFixed(0)}
         </div>
-        <div className="rounded-3xl h-[2px] bg-[#dfd9ff53]">
+        <div className="rounded-3xl h-[3px] bg-[#dfd9ff53]">
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: `${progress.toFixed(0)}%` }}
-            className="h-[2px] rounded-3xl bg-[#764AD4] relative overflow-hidden after:absolute after:content-[''] after:bg-gradient-to-r after:from-transparent after:via-[#FFF] after:to-transparent after:animate-shimmer after:inset-0"
+            className="h-[3px] rounded-3xl bg-[#764AD4] relative overflow-hidden after:absolute after:content-[''] after:bg-gradient-to-r after:from-transparent after:via-[#FFF] after:to-transparent after:animate-shimmer after:inset-0"
           ></motion.div>
         </div>
       </div>

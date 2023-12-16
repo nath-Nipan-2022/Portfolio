@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion as m } from "framer-motion";
 
@@ -9,9 +9,22 @@ import { fadeIn, staggerContainer } from "../utils";
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeLink, setActiveLink] = useState(false);
+  const [lastScroll, setLastScroll] = useState(0);
+
+  const observerRef = useRef();
+
+  // handle scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setLastScroll(scrollY);
+    };
+    window.addEventListener("scroll", handleScroll);
+
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
+    observerRef.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
@@ -24,13 +37,17 @@ export const Navbar = () => {
 
     document
       .querySelectorAll("section")
-      .forEach((section) => observer.observe(section));
+      .forEach((section) => observerRef.current.observe(section));
 
-    return () => observer.disconnect();
+    return () => observerRef.current.disconnect();
   }, []);
 
   return (
-    <nav className="fixed top-0 z-20 flex items-center w-full py-5 transition paddingX backdrop-blur">
+    <nav
+      className={`fixed top-0 z-20 flex items-center w-full py-5 transition paddingX ${
+        lastScroll >= 200 ? "backdrop-blur" : ""
+      }`}
+    >
       <div className="flex items-center justify-between flex-1 mx-auto max-w-7xl">
         <Link
           to="/"
@@ -55,7 +72,7 @@ export const Navbar = () => {
             <m.li
               key={link.id}
               variants={fadeIn("left", "spring", i * 0.25 + 4, 0.75)}
-              className="font-semibold tracking-wider"
+              className="font-medium tracking-wider"
             >
               <a
                 href={link.id}
@@ -78,7 +95,7 @@ export const Navbar = () => {
               <img
                 src={arrow_right}
                 alt="right arrow"
-                className="transition duration-300 group-hover:translate-x-2 group-hover:opacity-0"
+                className="transition duration-300 group-hover:opacity-0"
               />
             </a>
           </m.li>

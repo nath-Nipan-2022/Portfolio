@@ -15,7 +15,7 @@ export const Footer = () => {
                   <img
                     src={item.icon}
                     alt={item.id}
-                    className="transition duration-300 w-7 h-7 hover:scale-125 hover:brightness-200"
+                    className="w-5 h-5 transition duration-300 opacity-70 hover:opacity-100"
                   />
                 </a>
               </li>

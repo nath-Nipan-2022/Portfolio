@@ -1,18 +1,20 @@
 /* eslint-disable react/no-unknown-property */
 import { Suspense, useEffect, useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import { OrbitControls, Preload, SpotLight, useGLTF } from "@react-three/drei";
+
+import { OrbitControls, Preload } from "@react-three/drei";
+import { Canvas, useLoader } from "@react-three/fiber";
+import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
 import CanvasLoader from "../Loader";
 
 const Computer = ({ isMobile }) => {
-  const computer = useGLTF("./desktop_pc/scene.glb");
+  const computer = useLoader(GLTFLoader, "./desktop_pc/scene.glb");
 
   return (
     <primitive
       object={computer.scene}
       scale={isMobile ? 0.5 : 0.6}
-      position={isMobile ? [0, -2.5, -0.85] : [0, -3.75, -1.1]}
+      position={isMobile ? [0, -2.5, -0.85] : [0, -3.1, -1.1]}
       rotation={[-0.01, -0.2, -0.1]}
     />
   );
@@ -44,7 +46,7 @@ const ComputersCanvas = () => {
     >
       <Suspense fallback={<CanvasLoader />}>
         <directionalLight position={[-12.7, 9.6, -2.6]} intensity={2} />
-        <ambientLight />
+        <ambientLight intensity={3} position={[-0.6, 1.1, 2.75]} />
         <hemisphereLight
           intensity={2.16}
           groundColor="black"
