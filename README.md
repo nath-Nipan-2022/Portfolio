@@ -9,6 +9,7 @@ Currently, two official plugins are available:
 
 # [Live Preview link 🚀](https://nipandebnath.vercel.app)
 # Screen shot 
-![Screenshot_Nipan_Debnath_Portfolio](https://github.com/nath-Nipan-2022/Portfolio/assets/113585057/a3f867a1-af92-463b-8b4e-fcfd77d263e4)
+![Screenshot Nipan Debnath Portfolio](https://github.com/nath-Nipan-2022/Portfolio/assets/113585057/b341aaec-802b-499e-961e-c5d94f1a3cbc)
+
 
 
