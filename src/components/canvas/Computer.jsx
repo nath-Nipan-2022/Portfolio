@@ -14,22 +14,21 @@ const Computer = ({ isMobile }) => {
     <primitive
       object={computer.scene}
       scale={isMobile ? 0.5 : 0.6}
-      position={isMobile ? [0, -2.5, -0.85] : [0, -3.1, -1.1]}
+      position={isMobile ? [0, -3.5, -0.85] : [0, -3.1, -1.1]}
       rotation={[-0.01, -0.2, -0.1]}
     />
   );
 };
 
-const ComputersCanvas = () => {
+const ComputerCanvas = () => {
   const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth > 500) {
-        setIsMobile(false);
-      } else {
-        setIsMobile(true);
+        return setIsMobile(false);
       }
+      setIsMobile(true);
     };
     handleResize();
     window.addEventListener("resize", handleResize);
@@ -66,4 +65,4 @@ const ComputersCanvas = () => {
   );
 };
 
-export default ComputersCanvas;
+export default ComputerCanvas;

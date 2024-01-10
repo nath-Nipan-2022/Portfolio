@@ -1,5 +1,5 @@
-import BallCanvas from "./canvas/Ball";
-import { technologies } from "../constants";
+import BallCanvas from "../canvas/Ball";
+import { technologies } from "../../constants";
 import { SectionContainer, SectionHeader } from "./SectionContainer";
 
 export const Tech = () => {

@@ -1,12 +1,12 @@
 import { motion as m } from "framer-motion";
 
-import { fadeIn } from "../utils";
-import { projects } from "../constants";
-import { github, arrow_right } from "../assets";
+import { fadeIn } from "../../utils";
+import { projects } from "../../constants";
+import { github, arrow_right } from "../../assets";
 
 import { SectionContainer, SectionHeader } from "./SectionContainer";
-import { CardWrapper } from "./CardWrapper";
-import { useCardsHoverEffect } from "../hooks/useCardsHoverEffect";
+import { CardWrapper } from "../CardWrapper";
+import { useCardsHoverEffect } from "../../hooks/useCardsHoverEffect";
 
 export const Works = () => {
   useCardsHoverEffect("#works");
@@ -42,36 +42,30 @@ const ProjectCard = ({ project, index }) => {
 
   return (
     <CardWrapper
-      className="xs:w-[360px] w-full"
-      animationVariant={fadeIn("right", "spring", index * 0.3, 1)}
+      className="xs:w-[360px] w-full border border-gray-200/10"
+      animationVariant={fadeIn("right", "spring", index * 0.5, 1.25)}
     >
-      <div className="relative bg-black-200/80 backdrop-blur-xl rounded-[20px] p-4">
+      <div className="relative bg-black-100/70 backdrop-blur-xl rounded-[20px] p-4 group">
         <div className="w-full h-[230px] relative">
           <img
             src={image}
             alt="project image"
-            className="object-cover object-top w-full h-full rounded-2xl"
-            loading="lazy"
+            className="object-cover object-top w-full h-full rounded-2xl opacity-90"
           />
-          <div className="absolute inset-0 flex justify-end gap-2 p-4 transition">
-            {/* github link */}
+          <div className="absolute inset-0 flex items-center justify-center gap-3 p-4 transition group-hover:bg-gray-900/20">
             <a
               href={source_code_link}
               rel="noreferrer"
               target="_blank"
-              className="flex items-center justify-center w-10 h-10 p-2 transition rounded-full cursor-pointer black-gradient hover:invert"
+              className="flex items-center justify-center w-16 h-16 p-2 transition translate-x-6 -translate-y-6 rounded-full opacity-0 violet-gradient hover:invert group-hover:translate-y-0 group-hover:translate-x-0 group-hover:opacity-100"
             >
               <img src={github} alt="github" />
             </a>
-            {/* live view */}
             <a
               href={live_url}
               rel="noreferrer"
               target="_blank"
-              className="flex items-center justify-center w-10 h-10 p-1 transition rounded-full cursor-pointer black-gradient hover:invert"
-              onClick={() => {
-                window.open(live_url, "_blank");
-              }}
+              className="flex items-center justify-center w-16 h-16 p-1 transition -translate-x-6 translate-y-6 rounded-full opacity-0 violet-gradient hover:invert group-hover:translate-y-0 group-hover:translate-x-0 group-hover:opacity-100"
             >
               <img
                 src={arrow_right}
@@ -95,7 +89,7 @@ const ProjectCard = ({ project, index }) => {
           {tags.map((tag) => (
             <p
               key={tag.name}
-              className={`text-sm font-bold px-2 py-1 rounded-full ${tag.color} `}
+              className={`text-sm font-bold px-2 py-1 rounded-full gradient-text ${tag.color} `}
             >
               {tag.name}
             </p>

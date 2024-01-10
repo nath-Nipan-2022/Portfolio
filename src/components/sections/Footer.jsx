@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { socialLinks } from "../constants";
+import { socialLinks } from "../../constants";
 import { SectionContainer } from "./SectionContainer";
 
 export const Footer = () => {

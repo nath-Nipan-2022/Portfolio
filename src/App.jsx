@@ -1,45 +1,18 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-
-import {
-  About,
-  Contact,
-  Tech,
-  Hero,
-  Navbar,
-  StarsCanvas,
-  LoadingScreen,
-  Works,
-  Footer,
-} from "./components";
+import Layout from "./components/layout";
 
 function App() {
   const router = createBrowserRouter([
     {
       path: "/",
-      element: (
-        <div className="relative z-0">
-          <LoadingScreen />
-          <Navbar />
-          <main>
-            <Hero />
-            <About />
-            <Tech />
-            <Works />
-            <div className="relative z-0">
-              <Contact />
-              <StarsCanvas />
-            </div>
-            <Footer />
-          </main>
-        </div>
-      ),
+      element: <Layout />,
       errorElement: (
         <div className="text-red-900 bg-red-500">404 page not found</div>
       ),
     },
   ]);
 
-  return <RouterProvider router={router}></RouterProvider>;
+  return <RouterProvider router={router} />;
 }
 
 export default App;

@@ -1,5 +1,5 @@
 import { motion as m } from "framer-motion";
-import { staggerContainer, textVariant } from "../utils";
+import { staggerContainer, textVariant } from "../../utils";
 
 export const SectionContainer = ({ children, id }) => {
   return (

@@ -1,10 +1,10 @@
 import { motion as m } from "framer-motion";
 
-import { services, socialLinks } from "../constants";
-import { fadeIn } from "../utils";
+import { services, socialLinks } from "../../constants";
+import { fadeIn } from "../../utils";
 import { SectionContainer, SectionHeader } from "./SectionContainer";
-import { CardWrapper } from "./CardWrapper";
-import { useCardsHoverEffect } from "../hooks/useCardsHoverEffect";
+import { CardWrapper } from "../CardWrapper";
+import { useCardsHoverEffect } from "../../hooks/useCardsHoverEffect";
 
 export const About = () => {
   useCardsHoverEffect("#about");
@@ -13,10 +13,10 @@ export const About = () => {
     <SectionContainer id="about">
       <SectionHeader subTitle={"Introduction"} title={"Overview."} />
 
-      <div className="flex flex-col justify-between gap-6 lg:flex-row">
+      <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-start">
         <m.p
           variants={fadeIn("bottom", "tween", 0.1, 1)}
-          className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]"
+          className="max-w-3xl mt-4 text-lg text-secondary"
         >
           I&apos;m a creative frontend developer from India, I bring a dynamic
           set of skills and a fervent passion for web development to the table.
@@ -28,8 +28,8 @@ export const About = () => {
           a perfect fit for companies seeking top-tier frontend talent.
         </m.p>
 
-        <div>
-          <h3 className="pb-2 border-b border-secondary/50 text-secondary w-fit whitespace-nowrap">
+        <div className="lg:-mt-4">
+          <h3 className="pb-2 text-2xl border-b border-secondary/50 text-white-100 w-fit whitespace-nowrap">
             Connect with me
           </h3>
           <m.ul className="flex flex-wrap overflow-hidden gap-x-6 lg:flex-col lg:gap-0 lg:divide-y divide-secondary/50">
