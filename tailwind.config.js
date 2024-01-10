@@ -18,9 +18,6 @@ export default {
       screens: {
         xs: "450px",
       },
-      backgroundImage: {
-        "hero-pattern": "url('/src/assets/blue-gradient-bg.jpg')",
-      },
       keyframes: {
         shimmer: {
           "0%": {
